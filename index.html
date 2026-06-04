@@ -653,6 +653,44 @@ h2 {
     flex-direction: column;
   }
 }
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 100px 10vw;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-bg-img {
+  width: 350px;
+  max-width: 100%;
+  height: auto;
+}
+
+.hero-wrapper {
+  flex-direction: column;
+  text-align: center;
+  padding: 120px 20px 40px;
+}
+
+.hero-image {
+  order: -1; /* image goes above text */
+}
+
+.hero-bg-img {
+  width: 220px;
+  margin: 0 auto;
+}
 
 </style>
 
@@ -679,18 +717,25 @@ h2 {
 <!-- HERO -->
 <section class="hero">
 
-  <div class="hero-text">
-<div class="terminal-line">
-    <span id="greeting"></span>
-    <span class="cursor">|</span>
-</div>
-    <h1>I'm Angela Mariz Hullon</h1>
-    <p>Graduate of Bachelor of Science in Accounting Information System</p>
+  <div class="hero-wrapper">
+
+    <div class="hero-text">
+      <div class="terminal-line">
+        <span id="greeting"></span>
+        <span class="cursor">|</span>
+      </div>
+
+      <h1>I'm Angela Mariz Hullon</h1>
+      <p>Graduate of Bachelor of Science in Accounting Information System</p>
+    </div>
+
+    <div class="hero-image">
+      <img src="profile.jpg" class="hero-bg-img" alt="Profile">
+    </div>
+
   </div>
 
-  <div class="hero-image">
-    <img src="profile.jpg" class="hero-bg-img" alt="Profile">
-  </div>
+</section>
 
   <div class="buttons">
   <button onclick="openAI()">Ask Questions</button>
