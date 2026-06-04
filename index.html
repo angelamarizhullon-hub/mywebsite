@@ -580,6 +580,79 @@ h2 {
   width: 100%;
   border-radius: 10px;
 }
+/* =======================
+   MOBILE FIX (IMPORTANT)
+======================= */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-left: 0;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 120px 20px 60px;
+    text-align: center;
+  }
+
+  .hero-bg-img {
+    position: static;
+    width: 220px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  /* PROJECTS */
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* TIMELINE */
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    justify-content: flex-start !important;
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 30px;
+  }
+
+  .timeline-item::before {
+    left: 10px;
+  }
+
+  /* MODAL */
+  .modal-content {
+    width: 95%;
+    height: 90%;
+  }
+
+  /* CONTACT */
+  #contact {
+    padding: 60px 15px;
+  }
+
+  .social-links {
+    flex-direction: column;
+  }
+}
 
 </style>
 
