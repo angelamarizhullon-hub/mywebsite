@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Angela Mariz Hullon</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  color: #111;
+  transition: background 0.3s ease;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 20px;
+  left: 6vw;
+  right: 6vw;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  font-size: 14px;
+}
+
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #111;
+  opacity: 0.6;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10vw;
+}
+
+.hero h1 {
+  font-size: clamp( 3rem, 5vw, 5rem);
+  letter-spacing: 3px;
+}
+
+.hero p {
+  margin-top: 20px;
+  max-width: 600px;
+  opacity: 0.75;
+}
+
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+button:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 10vw;
+}
+
+h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+/* PROJECTS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* BLOBS */
+.blob {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 80%;
+  filter: blur(90px);
+  opacity: 0.55;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+
+/* 💜 PASTEL COLORS */
+.b1 { background: #ffb6d9; }
+.b2 { background: #c7a6ff; }
+.b3 { background: #ff8fe5; }
+
+/* MOBILE */
+@media(max-width:900px){
+  .hero { padding: 0 6vw; }
+  .blob {
+    width: 300px;
+    height: 300px;
+  }
+}
+/* HERO SECTION */
+.hero {
+  position: relative;
+  padding: 80px 60px;
+  min-height: 100vh;
+}
+
+/* TEXT */
+.hero-text {
+  max-width: 900px;
+  z-index: 2;
+}
+
+#greeting{
+  min-height:60px;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight:600;
+  color:#6a1b9a;
+
+  font-family:
+    "Segoe UI Emoji",
+    "Apple Color Emoji",
+    "Noto Color Emoji",
+    sans-serif;
+}
+
+.terminal-line{
+    display:flex;
+    align-items:center;
+    gap:4px;
+
+    font-family: "Consolas", "Courier New", monospace;
+
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight:600;
+
+    color:#6a1b9a;
+
+    min-height:60px;
+    margin-bottom:10px;
+}
+
+.cursor{
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink{
+    0%,50%{
+        opacity:1;
+    }
+    51%,100%{
+        opacity:0;
+    }
+}
+
+/* IMAGE RIGHT SIDE UNDER NAV */
+.hero-img {
+  position: absolute;
+  top: 150px;        /* adjust depending on navbar height */
+  right: 60px;
+
+  width: 400px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* BUTTONS */
+.buttons button {
+  margin-right: 10px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid #9963c5;
+  cursor: pointer;
+}
+.hero {
+  position: relative;
+  padding: 100px 60px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* TEXT IN FRONT */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+}
+
+/* IMAGE BEHIND TEXT */
+.hero-bg-img {
+  position: absolute;
+  right: 0;
+  top: 100px;
+
+  width: 500px;
+  height: auto;
+
+  object-fit: contain;
+
+  z-index: 1;              /* behind text */
+  opacity: 0.9;           /* optional for softer look */
+}
+
+@media (max-width: 768px) {
+  .hero-bg-img {
+    position: static;
+    display: block;
+    margin: 20px auto;
+    width: 260px;
+    opacity: 1;
+  }
+}
+
+.about-text {
+  max-width: 1500px;
+  opacity: 0.75;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+#projects {
+  padding: 60px;
+  background: #f7f7f7;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  margin: 10px;
+}
+
+.project-card p {
+  margin: 0 10px 15px;
+  color: gray;
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  width: 85%;
+  max-width: 850px;
+  padding: 20px;
+  border-radius: 12px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tab-btn {
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #f5f5f5;
+}
+
+.tab-btn.active {
+  background: #111;
+  color: white;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.viewer {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.viewer img {
+  max-width: none;
+  max-height: none;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.controls button {
+  padding: 6px 10px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.close{
+  float:right;
+  font-size:28px;
+  cursor:pointer;
+  margin-bottom:10px;
+}
+
+/* ================= RESUME TIMELINE ================= */
+
+#MyJourney {
+  padding: 80px 20px;
+  color: rgb(190, 82, 172);
+}
+
+/* CENTER LINE CONTAINER */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
+/* CENTER VERTICAL LINE */
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: #6a1b9a;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* EACH ITEM */
+.timeline-item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* LEFT SIDE */
+.timeline-item.left {
+  justify-content: flex-start;
+}
+
+/* RIGHT SIDE */
+.timeline-item.right {
+  justify-content: flex-end;
+}
+
+/* BOX */
+.content {
+  width: 40%;
+  background: #f3a5e6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* DOT ON CENTER LINE */
+.timeline-item::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #ce93d8;
+  border: 3px solid #6a1b9a;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  top: 20px;
+}
+
+/* TITLE COLOR */
+.content h3 {
+  color: #bf6cce;
+  margin-bottom: 10px;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    justify-content: flex-start !important;
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 30px;
+  }
+
+  .timeline-item::before {
+    left: 10px;
+  }
+}
+
+#contact {
+  padding: 80px 20px;
+  background: #0f0f1a;
+  color: white;
+
+  /* KEY: centers everything as a block */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-desc {
+  max-width: 600px;
+  opacity: 0.75;
+  margin-bottom: 25px;
+}
+
+/* SOCIAL LINKS CENTER */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+/* BUTTON STYLE */
+.social-btn {
+  padding: 10px 16px;
+  background: #1c1c2e;
+  border: 1px solid #6a1b9a;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.social-btn:hover {
+  background: #6a1b9a;
+  transform: translateY(-3px);
+}
+
+/* FORM CENTER CONTAINER */
+.form-container {
+  width: 100%;
+  max-width: 850px;
+  background: #1c1c2e;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* iframe responsive */
+.form-container iframe {
+  width: 100%;
+  border-radius: 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BLOBS -->
+<div class="blob b1" id="b1"></div>
+<div class="blob b2" id="b2"></div>
+<div class="blob b3" id="b3"></div>
+
+<!-- NAV -->
+<nav>
+  <div><h3>Let's build something meaningful.</h3></div>
+  <div>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#My Journey">My Journey</a>
+    <a href="#contact">Contacts</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-text">
+<div class="terminal-line">
+    <span id="greeting"></span>
+    <span class="cursor">|</span>
+</div>
+    <h1>I'm Angela Mariz Hullon</h1>
+    <p>Graduate of Bachelor of Science in Accounting Information System</p>
+  </div>
+
+  <div class="hero-image">
+    <img src="profile.jpg" class="hero-bg-img" alt="Profile">
+  </div>
+
+  <div class="buttons">
+  <button onclick="openAI()">Ask Questions</button>
+  <button onclick="openCV()">View CV</button>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+<p class="about-text">I’m a graduate of Bachelor of Science in Accounting Information Systems, and I consider myself someone who is driven, optimistic, and genuinely passionate about what I do. I believe that work should be something you look forward to, not something you feel forced to do every day. For me, motivation comes from knowing that I enjoy learning, building, and understanding how systems and technology can improve processes and create meaningful impact. I value the idea that life is short, so I try to spend it doing things that challenge me, excite me, and help me grow. I’m also a fast learner who enjoys exploring new ideas and adapting to different situations. When I encounter something unfamiliar, I take initiative to understand it and apply it in a practical way. This mindset keeps me motivated and allows me to continuously improve both personally and professionally.</p>
+<p class="about-text">I enjoy working independently because it allows me to focus deeply and understand tasks at my own pace, especially when solving problems or building projects. At the same time, I value teamwork, particularly when brainstorming ideas and gaining different perspectives that can improve the outcome of a project. My experience as a Student Council Treasurer helped me develop strong skills in budgeting, organization, and leadership through managing funds and coordinating with different people. I also led fundraising initiatives, which I found meaningful because they created value beyond just financial results. I may seem shy at first, but once I get comfortable, I become more open, engaging, and easy to work with. I believe that balancing independence and collaboration is important in creating effective and well-rounded solutions.</p>
+<p class="about-text">I am naturally curious and enjoy discovering new applications, systems, and technologies, especially when I can see how they help people in real-life situations. I often build small projects to practice my skills because I believe that learning is more effective when applied. Growing up in Quezon Province and later moving to Cavite while visiting Manila gave me a broader perspective in life. Seeing underprivileged communities, especially children and the elderly, shaped my empathy and inspired me to support fundraising efforts whenever possible. Academically, I have a foundation in accounting, financial reporting, strategic management, and business systems, combined with knowledge in data and technology that support decision-making. I also completed Cisco certifications in Introduction to Cybersecurity and Data Analytics Essentials, which strengthened my interest in the future of technology. I enjoy simplifying complex ideas and explaining systems in a way that is easy to understand, especially for users who are not familiar with technical concepts. My goal is to continue growing, improving systems, and contributing to work that creates real and meaningful impact.</p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+<div class="project-grid">
+
+    <!-- PROJECT CARD -->
+    <div class="project-card" onclick="openModal('proj1')">
+      <img src="financialmodelling.jpg" alt="Project 1">
+      <h3>Financial Forecasting & Analytics System</h3>
+      <p>
+     Excel-based business intelligence dashboard with
+    forecasting, SQL integration, and sales analytics.
+      </p>
+    </div>
+
+    <div class="project-card" onclick="openModal('proj2')">
+  <img src="whatifanalysis.jpg" alt="Project 2">
+
+  <h3>Profit Optimization & What-If Analysis Dashboard</h3>
+
+  <p>
+    Excel-based financial analytics system using Goal Seek,
+    Data Tables, and Scenario Manager for profit forecasting
+    and strategic business analysis.
+  </p>
+</div>
+
+<div class="project-card" onclick="openModal('proj3')">
+  <img src="Dashboard.jpg" alt="Project 3">
+
+  <h3>E-Commerce Sales & Profit Analysis Dashboard</h3>
+
+  <p>
+    Excel-based business analytics dashboard that transforms
+    raw e-commerce sales data into actionable insights through
+    data cleaning, KPI tracking, profitability analysis, and
+    interactive visualizations.
+  </p>
+</div>
+
+<div class="project-card" onclick="openModal('proj4')">
+  <img src="WIP.jpg" alt="Project 4">
+
+  <h3>Integrated Sales Information System (Ongoing)</h3>
+
+  <p>
+    Full-cycle MIS system with PostgreSQL, role-based access control,
+    ETL processes, star schema data warehouse, and Power BI analytics.
+  </p>
+</div>
+
+
+</div>
+</section>
+
+<!-- RESUME -->
+<section id="My Journey">
+
+  <h2>My Journey</h2>
+
+  <p style="max-width:700px; opacity:0.75; margin-bottom:40px;">
+    Education, skills, internship experience, and certifications.
+  </p>
+
+  <!-- TIMELINE START -->
+  <div class="timeline">
+        <div class="timeline-item left">
+      <div class="content">
+        <h3>2026</h3>
+        <p>Graduated with a Bachelor of Science in Accounting Information Systems and earned certifications in SQL (Intermediate) – HackerRank, Introduction to Cybersecurity – Cisco Networking Academy, and Data Analytics Essentials – Cisco Networking Academy.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="content">
+        <h3>2023–2024</h3>
+        <p>Served as Student Council Treasurer, managing event budgets of approximately ₱300,000 and leading fundraising initiatives that generated ₱120,000 for student programs.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="content">
+        <h3>2022–2026</h3>
+        <p>Maintained status as a Consistent Honor Student and Scholar while developing skills in accounting, information systems, database management, ERP systems, data analytics, and business technology.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="content">
+        <h3>2022</h3>
+        <p>Started pursuing a Bachelor of Science in Accounting Information Systems at Power School of Technology Inc.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="content">
+        <h3>2021–2022 (Grade 12, ABM Strand) </h3>
+        <p>Graduated as Valedictorian and received With High Honors distinction. Awarded Outstanding Performance in Accounting and Business Management, Mathematics, Science, and Communication Arts.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="content">
+        <h3>2020–2021 (Grade 11, ABM Strand)</h3>
+        <p>Began specializing in Accountancy, Business, and Management at Power School of Technology Inc. Earned High Honors and demonstrated excellence in accounting, business, and analytical subjects.</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- TIMELINE END -->
+
+</section>
+
+<section id="contact">
+
+<section id="contact">
+
+  <h2>Contact Me</h2>
+
+  <p class="contact-desc">
+    Send inquiries, collaboration requests, or messages directly through the form below.
+  </p>
+
+  <!-- SOCIAL LINKS -->
+  <div class="social-links">
+    <a href="mailto:angelamarizhullon@gmail.com" class="social-btn">📧 Gmail Me</a>
+    <a href="https://www.linkedin.com/" target="_blank" class="social-btn">💼 LinkedIn</a>
+    <a href="https://github.com/" target="_blank" class="social-btn">💻 GitHub</a>
+  </div>
+
+  <!-- GOOGLE FORM -->
+  <div class="form-container">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdOljyVzxNP3GNQUnec-j5jHaRdLfwbyejPMbKu2T2otjjidg/viewform?usp=header"
+      width="100%"
+      height="500"
+      frameborder="0">
+    </iframe>
+  </div>
+
+</section>
+
+</section>
+
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+
+/* =========================
+   BLOBS
+========================= */
+const blobs = [
+  document.getElementById("b1"),
+  document.getElementById("b2"),
+  document.getElementById("b3")
+];
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+
+let pos = blobs.map(() => ({ x: mouseX, y: mouseY }));
+
+window.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateBlobs() {
+  pos.forEach((p, i) => {
+    const speed = 0.06 + i * 0.01;
+
+    p.x += (mouseX - p.x) * speed;
+    p.y += (mouseY - p.y) * speed;
+
+    if (blobs[i]) {
+      blobs[i].style.transform =
+        `translate(${p.x - 100}px, ${p.y - 100}px)`;
+    }
+  });
+
+  requestAnimationFrame(animateBlobs);
+}
+animateBlobs();
+
+/* =========================
+   BACKGROUND FLOW
+========================= */
+function backgroundFlow() {
+  const cx = mouseX / window.innerWidth;
+  const cy = mouseY / window.innerHeight;
+
+  document.body.style.background = `
+    radial-gradient(circle at ${cx * 80}% ${cy * 80}%, hsl(320,80%,92%), transparent 55%),
+    radial-gradient(circle at ${100 - cx * 80}% ${cy * 80}%, hsl(265,80%,92%), #fff 80%)
+  `;
+
+  requestAnimationFrame(backgroundFlow);
+}
+backgroundFlow();
+
+/* =========================
+   AI SYSTEM
+========================= */
+
+const API_KEY = "AIzaSyAS1mtmYb7varNAUi_17j5WFcCDI6ebtQg";
+
+const PERSONA = `
+You are the digital representation of Angela Mariz Arella Hullon, BS-Accounting Information Ssystem graduate.
+
+Core:
+- MIS, Finance, Strategic Management, Data Warehousing
+- Independent learner using YouTube & Cisco certs
+- Treasurer experience managing school finances
+- Purpose-driven, reflective thinker
+- Speaks in first person
+- Finished Cisco Certs in Introduction in Cybersecurity and Data Analytics Essentials
+- Like working alone for more focused tasked, but also enjoy working in team especially for tasks that requires deeper understanding with brainstorming and encountering different perspectives.
+- Like learning about the future of technologies and integrating AI to real work settings.
+`;
+
+const aiBox = document.getElementById("aiBox");
+const aiInput = document.getElementById("aiInput");
+const chatBox = document.getElementById("chatBox");
+
+if (!aiBox || !aiInput || !chatBox) {
+  console.error("Missing AI UI elements");
+}
+
+/* OPEN / CLOSE */
+window.openAI = function () {
+  aiBox.style.display = "flex";
+  setTimeout(() => aiInput.focus(), 100);
+};
+
+window.closeAI = function () {
+  aiBox.style.display = "none";
+};
+
+
+
+
+// CV MODAL FUNCTIONS
+window.openCV = function () {
+  document.getElementById("cvModal").style.display = "flex";
+};
+
+window.closeCV = function () {
+  document.getElementById("cvModal").style.display = "none";
+};
+
+window.printCV = function () {
+  const frame = document.getElementById("cvFrame");
+  frame.contentWindow.focus();
+  frame.contentWindow.print();
+};
+
+/* =========================
+   CHAT UI
+========================= */
+
+function addMessage(text, type) {
+  if (!chatBox) {
+    console.error("chatBox not found");
+    return;
+  }
+
+  const div = document.createElement("div");
+
+  div.style.maxWidth = "75%";
+  div.style.padding = "10px 14px";
+  div.style.borderRadius = "16px";
+  div.style.marginBottom = "8px";
+  div.style.fontSize = "14px";
+  div.style.whiteSpace = "pre-wrap";
+  div.style.lineHeight = "1.4";
+
+  if (type === "user") {
+    div.style.alignSelf = "flex-end";
+    div.style.background = "linear-gradient(135deg, #8b5cf6, #a78bfa)";
+    div.style.color = "#fff";
+    div.style.borderBottomRightRadius = "4px";
+  } else {
+    div.style.alignSelf = "flex-start";
+    div.style.background = "rgba(255,255,255,0.85)";
+    div.style.border = "1px solid rgba(139,92,246,0.2)";
+    div.style.backdropFilter = "blur(8px)";
+    div.style.color = "#111";
+    div.style.borderBottomLeftRadius = "4px";
+  }
+
+  div.innerText = text;
+
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function showTyping() {
+  removeTyping();
+
+  const div = document.createElement("div");
+  div.id = "typing";
+  div.innerText = "typing...";
+  div.style.fontSize = "12px";
+  div.style.opacity = "0.5";
+  div.style.marginBottom = "8px";
+
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  setTimeout(removeTyping, 700);
+}
+
+function removeTyping() {
+  const t = document.getElementById("typing");
+  if (t) t.remove();
+}
+
+function typeMessage(text, type) {
+  const div = document.createElement("div");
+
+  div.style.maxWidth = "75%";
+  div.style.padding = "10px 14px";
+  div.style.borderRadius = "16px";
+  div.style.marginBottom = "8px";
+  div.style.fontSize = "14px";
+  div.style.whiteSpace = "pre-wrap";
+  div.style.lineHeight = "1.4";
+
+  if (type === "user") {
+    div.style.alignSelf = "flex-end";
+    div.style.background = "linear-gradient(135deg, #8b5cf6, #a78bfa)";
+    div.style.color = "#fff";
+    div.style.borderBottomRightRadius = "4px";
+  } else {
+    div.style.alignSelf = "flex-start";
+    div.style.background = "rgba(255,255,255,0.85)";
+    div.style.border = "1px solid rgba(139,92,246,0.2)";
+    div.style.color = "#111";
+    div.style.borderBottomLeftRadius = "4px";
+  }
+
+  chatBox.appendChild(div);
+
+  // 🧠 typing animation
+  let i = 0;
+  const speed = 15; // lower = faster typing
+
+  function typeChar() {
+    if (i < text.length) {
+      div.innerText += text.charAt(i);
+      i++;
+      chatBox.scrollTop = chatBox.scrollHeight;
+      setTimeout(typeChar, speed);
+    }
+  }
+
+  typeChar();
+}
+/* =========================
+   GEMINI REQUEST (FIXED)
+========================= */
+
+window.askAI = async function () {
+  const text = aiInput.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+  aiInput.value = "";
+  showTyping();
+
+  try {
+
+const res = await fetch(
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-goog-api-key": API_KEY
+    },
+    body: JSON.stringify({
+      contents: [
+        {
+          parts: [
+            {
+              text: `
+You are Mariz’s AI Assistant, representing her professionally as a BS-AIS graduate applicant.
+
+PERSONA:
+${PERSONA}
+
+ROLE:
+You are acting like a friendly but professional applicant assistant during conversations.
+
+RULES:
+- If user says "hi" or greetings:
+  Respond exactly like:
+  "Hello, good day! I am Mariz’s AI Assistant. How can I help you?"
+- Be friendly, natural, and human-like (not robotic)
+- Keep responses VERY short (1–2 sentences only unless asked)
+- Do NOT over-explain
+- Always sound like you are assisting on behalf of Mariz for job/application context
+- Be conversational like chat, not an essay
+
+USER MESSAGE:
+${text}
+`
+            }
+          ]
+        }
+      ]
+    })
+  }
+);
+    const data = await res.json();
+
+    console.log("GEMINI RESPONSE:", data);
+
+    removeTyping();
+
+    if (!res.ok || data?.error) {
+      addMessage("API Error: " + (data?.error?.message || "Request failed"), "ai");
+      return;
+    }
+
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!reply) {
+      addMessage("No response from AI.", "ai");
+      return;
+    }
+
+    typeMessage(reply, "ai");
+
+  } catch (err) {
+    removeTyping();
+    console.error(err);
+    addMessage("Connection error: " + err.message, "ai");
+  }
+};
+
+/* =========================
+   MULTI-LANGUAGE GREETING
+========================= */
+
+const greetings = [
+  "Open to international opportunities. • Global",
+
+  "Good day! Nice to meet you. • English",
+
+  "こんにちは、はじめまして。 • Japan",
+  "안녕하세요, 만나서 반갑습니다. • South Korea",
+  "您好，很高兴认识您。 • China",
+  "您好，很高興認識您。 • Taiwan",
+
+  "สวัสดีค่ะ ยินดีที่ได้รู้จักค่ะ • Thailand",
+
+  "မင်္ဂလာပါ၊ တွေ့ရတာဝမ်းသာပါတယ်။ • Myanmar",
+
+  "Xin chào, rất vui được gặp bạn. • Vietnam",
+
+  "Selamat berkenalan. • Malaysia",
+
+  "Selamat siang, senang bertemu dengan Anda. • Indonesia",
+
+  "नमस्ते, आपसे मिलकर खुशी हुई। • India",
+
+  "Magandang araw! Ikinagagalak kitang makilala. • Philippines",
+
+  "Buenos días, mucho gusto. • Spain",
+
+  "Bonjour, ravie de vous rencontrer. • France",
+
+  "Guten Tag, freut mich, Sie kennenzulernen. • Germany",
+
+  "Buongiorno, piacere di conoscerti. • Italy",
+
+  "Goedendag, aangenaam kennis te maken. • Netherlands",
+
+  "Dzień dobry, miło cię poznać. • Poland",
+
+  "God dag, trevligt att träffas. • Sweden",
+
+  "God dag, hyggelig å møte deg. • Norway",
+
+  "Hyvää päivää, hauska tavata. • Finland",
+
+  "Bom dia, prazer em conhecê-lo. • Portugal",
+
+  "İyi günler, memnun oldum. • Türkiye",
+
+  "Добрый день, приятно познакомиться. • Russia",
+
+  "Καλημέρα, χαίρομαι που σας γνωρίζω. • Greece",
+
+  "مرحباً، تشرفتُ بلقائكِ. • UAE"
+];
+
+const greeting = document.getElementById("greeting");
+
+let messageIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect(){
+
+    const currentText = greetings[messageIndex];
+
+    if(!deleting){
+
+        greeting.textContent =
+            currentText.substring(0, charIndex);
+
+        charIndex++;
+
+        if(charIndex > currentText.length){
+
+            deleting = true;
+
+            setTimeout(typeEffect, 500);
+
+            return;
+        }
+
+    }else{
+
+        greeting.textContent =
+            currentText.substring(0, charIndex);
+
+        charIndex--;
+
+        if(charIndex < 0){
+
+            deleting = false;
+
+            messageIndex++;
+
+            if(messageIndex >= greetings.length){
+                messageIndex = 0;
+            }
+
+            charIndex = 0;
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 20 : 40);
+}
+
+typeEffect();
+
+});
+
+/* projects */
+const projects = {
+  proj1: {
+  title: "Financial Forecasting & Analytics System",
+
+  description:
+    "An Excel-based financial analytics and forecasting system designed to analyze sales performance, customer behavior, profit trends, and business growth using dashboards and SQL-supported datasets.",
+
+  tools: [
+    "Microsoft Excel",
+    "PostgreSQL",
+    "Pivot Tables",
+    "Forecasting",
+    "Data Visualization",
+    "Business Analytics"
+  ],
+
+  features: [
+    "Interactive dashboard",
+    "Sales forecasting",
+    "Customer frequency analysis",
+    "Profit growth projection",
+    "Best-selling product analysis",
+    "SQL-integrated reporting"
+  ],
+
+  role:
+    "Designed the financial model, created visual dashboards, analyzed datasets, developed forecasting logic, and structured SQL-supported reports for business insights.",
+
+  excel: "financialmodelling.xlsx",
+
+  images: [
+    "fm1.jpg",
+    "fm2.jpg",
+    "fm3.jpg",
+    "fm4.jpg",
+    "fm5.jpg",
+    "fm6.jpg",
+    "fm7.jpg",
+    "fm8.jpg",
+    "fm9.jpg"
+  ],
+
+  video: "videos/financial-demo.mp4"
+},
+
+proj2: {
+
+  title: "Profit Optimization & What-If Analysis Dashboard",
+
+  description:
+    "An Excel-based business analytics and decision-support system designed to evaluate how pricing, production cost, and sales volume affect company profitability. The project uses Excel What-If Analysis tools including Goal Seek, Data Tables, and Scenario Manager to support strategic business decisions and profit forecasting.",
+
+  tools: [
+    "Microsoft Excel",
+    "Goal Seek",
+    "Data Tables",
+    "Scenario Manager",
+    "Financial Modeling",
+    "Business Analytics",
+    "Forecasting",
+    "Data Visualization"
+  ],
+
+  features: [
+    "Dynamic profit calculation model",
+    "Automated forecasting",
+    "Goal Seek target profit analysis",
+    "Selling price simulations",
+    "Scenario comparison dashboard",
+    "Business decision support",
+    "Financial sensitivity analysis",
+    "Interactive Excel model"
+  ],
+
+  role:
+    "Designed the financial model, created formulas and profit calculations, developed What-If Analysis simulations, performed forecasting analysis, structured scenario comparisons, and organized the dashboard presentation for business decision-making.",
+
+  excel: "What-if Analysis.xlsx",
+
+  images: [
+    "What1.jpg",
+    "What2.jpg",
+    "What3.jpg",
+    "What4.jpg",
+    "What5.jpg",
+    "What6.jpg"
+  ],
+
+  video: "videos/profit-analysis-demo.mp4"
+
+},
+
+ proj3: {
+
+  title: "E-Commerce Sales & Profit Analysis Dashboard",
+
+  description:
+    "A data analytics project focused on transforming raw e-commerce sales data into meaningful business insights through data cleaning, validation, dashboard development, and performance analysis. The project evaluates sales trends, profitability, product performance, and regional sales distribution to support data-driven decision-making. The dashboard was developed in Microsoft Excel using Pivot Tables, Pivot Charts, KPIs, and interactive filters to provide a comprehensive overview of business performance.",
+
+  tools: [
+    "Microsoft Excel",
+    "Pivot Tables",
+    "Pivot Charts",
+    "Data Cleaning",
+    "Business Analytics",
+    "Data Visualization",
+    "Dashboard Development",
+    "Kaggle Dataset"
+  ],
+
+  features: [
+    "Raw data cleaning and preparation",
+    "Duplicate and missing value validation",
+    "Interactive sales dashboard",
+    "Sales trend analysis",
+    "Profitability analysis",
+    "Product performance evaluation",
+    "Regional sales analysis",
+    "KPI monitoring",
+    "Profit margin calculations",
+    "Business insight generation"
+  ],
+
+  role:
+    "Collected and analyzed raw e-commerce transaction data from Kaggle, performed data cleaning and validation in Excel, developed calculated business metrics, created interactive dashboards using Pivot Tables and Pivot Charts, analyzed sales and profitability trends, and generated actionable recommendations to improve business performance.",
+
+  excel: "Ecommerce.xlsx",
+
+  images: [
+    "ecommerce1.jpg",
+    "ecommerce2.jpg",
+    "ecommerce3.jpg",
+    "ecommerce4.jpg",
+    "ecommerce5.jpg",
+    "ecommerce6.jpg",
+    "ecommerce7.jpg"
+  ],
+
+  video: "videos/ecommerce-demo.mp4"
+
+},
+
+ proj4: {
+
+  title: "Integrated Sales Information System (OLTP + DW + MIS)",
+
+  description:
+    "A full-cycle information system integrating transactional processing, data warehousing, and management reporting. Built as a capstone project combining PostgreSQL, role-based access control, ETL processes, and Power BI dashboards.",
+
+  tools: [
+    "PostgreSQL",
+    "SQL",
+    "Power BI",
+    "HTML/CSS/JavaScript",
+    "ETL Process",
+    "Star Schema",
+    "Role-Based Access Control (RBAC)"
+  ],
+
+  features: [
+    "Login system with 3 roles (Admin, Analyst, Cashier)",
+    "Sales transaction CRUD module (OLTP system)",
+    "Star schema data warehouse (fact + dimension tables)",
+    "ETL process from transactional to warehouse data",
+    "SQL-based analytics queries",
+    "Power BI dashboard for KPIs and reports"
+  ],
+
+  role:
+    "Designed database schema, implemented role-based access control, structured ETL flow, created star schema model, and developed SQL queries for business analytics and dashboard reporting.",
+
+  images: [
+    "sis1.jpg",
+    "sis2.jpg",
+    "sis3.jpg"
+  ],
+
+  video: "videos/sis-demo.mp4"
+}
+
+
+};
+
+function openModal(id) {
+
+  const p = projects[id];
+  const modal = document.getElementById("projectModal");
+
+  const tabButtons = document.getElementById("tabButtons");
+  const tabContent = document.getElementById("tabContent");
+
+  document.getElementById("modalTitle").innerText = p.title;
+
+  tabButtons.innerHTML = "";
+  tabContent.innerHTML = "";
+
+  // =========================
+  // OVERVIEW TAB
+  // =========================
+
+  createTab("Overview", () => {
+
+    tabContent.innerHTML = `
+      <div style="margin-bottom:20px;">
+
+        <p style="
+          margin-bottom:15px;
+          line-height:1.7;
+          color:#555;
+        ">
+          ${p.description || ""}
+        </p>
+
+        <h3 style="margin-bottom:10px;">Tools Used</h3>
+
+        <div style="
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          margin-bottom:20px;
+        ">
+          ${(p.tools || []).map(tool => `
+            <span style="
+              padding:8px 14px;
+              background:#f3f0ff;
+              border-radius:999px;
+              font-size:13px;
+            ">
+              ${tool}
+            </span>
+          `).join("")}
+        </div>
+
+        <h3 style="margin-bottom:10px;">Key Features</h3>
+
+        <ul style="
+          padding-left:20px;
+          margin-bottom:20px;
+          color:#555;
+          line-height:1.7;
+        ">
+          ${(p.features || []).map(feature => `
+            <li>${feature}</li>
+          `).join("")}
+        </ul>
+
+        <h3 style="margin-bottom:10px;">My Role</h3>
+
+        <p style="
+          line-height:1.7;
+          color:#555;
+        ">
+          ${p.role || ""}
+        </p>
+
+      </div>
+    `;
+  });
+
+  // =========================
+  // EXCEL TAB
+  // =========================
+
+  if (p.excel) {
+
+    createTab("Excel", () => {
+
+      tabContent.innerHTML = `
+        <div style="padding:20px 0;">
+
+          <a href="${p.excel}"
+             target="_blank"
+             style="
+               padding:12px 18px;
+               background:#111;
+               color:white;
+               text-decoration:none;
+               border-radius:10px;
+               display:inline-block;
+             ">
+             Open Excel File
+          </a>
+
+        </div>
+      `;
+    });
+  }
+
+  // =========================
+  // IMAGES TAB
+  // =========================
+
+  if (p.images && p.images.length > 0) {
+
+    createTab("Images", () => {
+
+      tabContent.innerHTML = `
+
+        <div class="viewer">
+
+          <img id="viewerImg" src="${p.images[0]}" />
+
+          <button class="nav prev" onclick="prevImage()">‹</button>
+          <button class="nav next" onclick="nextImage()">›</button>
+
+          <div class="controls">
+            <button onclick="zoomIn()">+</button>
+            <button onclick="zoomOut()">−</button>
+          </div>
+
+        </div>
+
+      `;
+
+      initViewer(p.images);
+
+    });
+  }
+
+  // =========================
+  // VIDEO TAB
+  // =========================
+
+  if (p.video) {
+
+    createTab("Video", () => {
+
+      tabContent.innerHTML = `
+        <video controls style="
+          width:100%;
+          border-radius:12px;
+        ">
+          <source src="${p.video}" type="video/mp4">
+        </video>
+      `;
+    });
+  }
+
+  modal.style.display = "flex";
+
+  // AUTO OPEN FIRST TAB
+  const firstBtn = tabButtons.querySelector("button");
+
+  if (firstBtn) {
+    firstBtn.click();
+  }
+}
+
+function createTab(name, onClick) {
+  const btn = document.createElement("button");
+  btn.innerText = name;
+  btn.className = "tab-btn";
+
+  btn.onclick = function () {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    onClick();
+  };
+
+  document.getElementById("tabButtons").appendChild(btn);
+}
+
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
+
+let currentIndex = 0;
+
+function initSlider() {
+  currentIndex = 0;
+  updateSlider();
+
+  const track = document.getElementById("sliderTrack");
+
+  let startX = 0;
+
+  track.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX > endX + 50) {
+      moveSlide(1);
+    } else if (startX < endX - 50) {
+      moveSlide(-1);
+    }
+  });
+  
+}
+
+function moveSlide(dir) {
+  const track = document.getElementById("sliderTrack");
+  const total = track.children.length;
+
+  currentIndex += dir;
+
+  if (currentIndex < 0) currentIndex = 0;
+  if (currentIndex >= total) currentIndex = total - 1;
+
+  updateSlider();
+}
+
+function updateSlider() {
+  const track = document.getElementById("sliderTrack");
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// ===== IMAGE VIEWER (PUT HERE) =====
+
+let zoom = 1;
+let currentImages = [];
+let isDragging = false;
+let startX, startY;
+let offsetX = 0, offsetY = 0;
+
+function initViewer(images) {
+  currentImages = images;
+  currentIndex = 0;
+  zoom = 1;
+  offsetX = 0;
+  offsetY = 0;
+
+  const img = document.getElementById("viewerImg");
+
+  img.src = currentImages[currentIndex];
+
+  // swipe
+  img.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  img.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX > endX + 50) nextImage();
+    if (startX < endX - 50) prevImage();
+  });
+
+  // drag zoom
+  img.onmousedown = (e) => {
+    isDragging = true;
+    startX = e.clientX - offsetX;
+    startY = e.clientY - offsetY;
+    img.style.cursor = "grabbing";
+  };
+
+  window.onmouseup = () => {
+    isDragging = false;
+    img.style.cursor = "grab";
+  };
+
+  window.onmousemove = (e) => {
+    if (!isDragging || zoom === 1) return;
+
+    offsetX = e.clientX - startX;
+    offsetY = e.clientY - startY;
+
+    applyTransform();
+  };
+
+  img.onwheel = (e) => {
+    e.preventDefault();
+
+    zoom += e.deltaY * -0.001;
+    zoom = Math.min(Math.max(1, zoom), 3);
+
+    applyTransform();
+  };
+}
+
+function applyTransform() {
+  const img = document.getElementById("viewerImg");
+  img.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${zoom})`;
+}
+
+function zoomIn() {
+  zoom = Math.min(zoom + 0.2, 3);
+  applyTransform();
+}
+
+function zoomOut() {
+  zoom = Math.max(zoom - 0.2, 1);
+  applyTransform();
+}
+
+function nextImage() {
+  if (currentIndex < currentImages.length - 1) {
+    currentIndex++;
+    updateImage();
+  }
+}
+
+function prevImage() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateImage();
+  }
+}
+
+function updateImage() {
+  const img = document.getElementById("viewerImg");
+  img.src = currentImages[currentIndex];
+
+  zoom = 1;
+  offsetX = 0;
+  offsetY = 0;
+  applyTransform();
+}
+
+
+
+</script>
+
+
+
+<div id="aiBox" style="
+  display:none;
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  width:370px;
+  height:520px;
+  z-index:999;
+">
+  <div style="
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 45px rgba(120, 90, 200, 0.25);
+    background: linear-gradient(145deg, #ffffff, #f4f0ff);
+    border: 1px solid rgba(180, 150, 255, 0.25);
+  ">
+
+    <!-- HEADER (Messenger style) -->
+ <div style="
+  padding:14px;
+  background: linear-gradient(90deg, #e69adb, #a78bfa);
+  color:white;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+">
+  <span>AI Assistant</span>
+  <button onclick="closeAI()" style="
+    background:transparent;
+    border:none;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+  ">✕</button>
+    </div>
+
+    <!-- CHAT AREA -->
+ <div id="chatBox" style="
+  flex:1;
+  padding:12px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  background: linear-gradient(180deg, #f6f3ff, #ffffff);
+">
+</div>
+
+    <!-- INPUT BAR (fixed style like Messenger) -->
+    <div style="
+      display:flex;
+      gap:8px;
+      padding:10px;
+      border-top:1px solid #ddd;
+      background:white;
+    ">
+      <input id="aiInput" placeholder="Message..."
+        style="
+          flex:1;
+          padding:10px 12px;
+          border-radius:999px;
+          border:1px solid #ccc;
+          outline:none;
+        ">
+
+      <button onclick="askAI()" style="
+        padding:10px 14px;
+        border:none;
+        border-radius:999px;
+        background:#111;
+        color:white;
+        cursor:pointer;
+      ">
+        Send
+      </button>
+    </div>
+
+  </div>
+</div>
+<div id="cvModal" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+">
+
+  <div style="
+    width:90%;
+    max-width:900px;
+    height:90%;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  ">
+
+    <!-- HEADER -->
+    <div style="
+      padding:10px;
+      background:#111;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    ">
+      <span>My CV</span>
+
+      <div style="display:flex; gap:10px;">
+        <button onclick="printCV()" style="
+          background:white;
+          color:#111;
+          border:none;
+          padding:6px 10px;
+          border-radius:6px;
+          cursor:pointer;
+        ">Print</button>
+
+        <a href="resume.pdf" download style="
+          background:white;
+          color:#111;
+          padding:6px 10px;
+          border-radius:6px;
+          text-decoration:none;
+        ">Download</a>
+
+        <button onclick="closeCV()" style="
+          background:red;
+          color:white;
+          border:none;
+          padding:6px 10px;
+          border-radius:6px;
+          cursor:pointer;
+        ">✕</button>
+      </div>
+    </div>
+
+    <!-- PDF VIEWER -->
+    <iframe 
+      id="cvFrame"
+      src="resume.pdf"
+      style="flex:1; border:none;">
+    </iframe>
+
+  </div>
+</div>
+
+<!-- projects -->
+<div id="projectModal" class="modal">
+
+  <div class="modal-content">
+
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2 id="modalTitle"></h2>
+
+    <!-- TAB BUTTONS -->
+    <div id="tabButtons" style="display:flex; gap:10px; margin:10px 0;"></div>
+
+    <!-- CONTENT AREA -->
+    <div id="tabContent"></div>
+
+  </div>
+
+</div>
+</body>
+</html>
