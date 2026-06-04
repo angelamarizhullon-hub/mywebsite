@@ -674,6 +674,17 @@ h2 {
   </p>
 </div>
 
+<div class="project-card" onclick="openModal('proj4')">
+  <img src="WIP.jpg" alt="Project 4">
+
+  <h3>Integrated Sales Information System (Ongoing)</h3>
+
+  <p>
+    Full-cycle MIS system with PostgreSQL, role-based access control,
+    ETL processes, star schema data warehouse, and Power BI analytics.
+  </p>
+</div>
+
 
 </div>
 </section>
@@ -689,32 +700,45 @@ h2 {
 
   <!-- TIMELINE START -->
   <div class="timeline">
+        <div class="timeline-item left">
+      <div class="content">
+        <h3>2026</h3>
+        <p>Graduated with a Bachelor of Science in Accounting Information Systems and earned certifications in SQL (Intermediate) – HackerRank, Introduction to Cybersecurity – Cisco Networking Academy, and Data Analytics Essentials – Cisco Networking Academy.</p>
+      </div>
+    </div>
+    
+    <div class="timeline-item right">
+      <div class="content">
+        <h3>2023–2024</h3>
+        <p>Served as Student Council Treasurer, managing event budgets of approximately ₱300,000 and leading fundraising initiatives that generated ₱120,000 for student programs.</p>
+      </div>
+    </div>
 
     <div class="timeline-item left">
       <div class="content">
-        <h3>2025 - Capstone & Portfolio</h3>
-        <p>Built full-stack systems, portfolio website, and data dashboard projects.</p>
+        <h3>2022–2026</h3>
+        <p>Maintained status as a Consistent Honor Student and Scholar while developing skills in accounting, information systems, database management, ERP systems, data analytics, and business technology.</p>
       </div>
     </div>
 
     <div class="timeline-item right">
       <div class="content">
-        <h3>2024 - Advanced Development</h3>
-        <p>Worked with SQL databases, backend systems, and improved programming skills.</p>
+        <h3>2022</h3>
+        <p>Started pursuing a Bachelor of Science in Accounting Information Systems at Power School of Technology Inc.</p>
       </div>
     </div>
 
     <div class="timeline-item left">
       <div class="content">
-        <h3>2023 - Web Development Basics</h3>
-        <p>Created responsive websites using HTML, CSS, and JavaScript.</p>
+        <h3>2021–2022 (Grade 12, ABM Strand) </h3>
+        <p>Graduated as Valedictorian and received With High Honors distinction. Awarded Outstanding Performance in Accounting and Business Management, Mathematics, Science, and Communication Arts.</p>
       </div>
     </div>
 
     <div class="timeline-item right">
       <div class="content">
-        <h3>2022 - Started College</h3>
-        <p>Began IT studies and learned programming fundamentals and logic.</p>
+        <h3>2020–2021 (Grade 11, ABM Strand)</h3>
+        <p>Began specializing in Accountancy, Business, and Management at Power School of Technology Inc. Earned High Honors and demonstrated excellence in accounting, business, and analytical subjects.</p>
       </div>
     </div>
 
@@ -1303,7 +1327,46 @@ proj2: {
 
   video: "videos/ecommerce-demo.mp4"
 
+},
+
+ proj4: {
+
+  title: "Integrated Sales Information System (OLTP + DW + MIS)",
+
+  description:
+    "A full-cycle information system integrating transactional processing, data warehousing, and management reporting. Built as a capstone project combining PostgreSQL, role-based access control, ETL processes, and Power BI dashboards.",
+
+  tools: [
+    "PostgreSQL",
+    "SQL",
+    "Power BI",
+    "HTML/CSS/JavaScript",
+    "ETL Process",
+    "Star Schema",
+    "Role-Based Access Control (RBAC)"
+  ],
+
+  features: [
+    "Login system with 3 roles (Admin, Analyst, Cashier)",
+    "Sales transaction CRUD module (OLTP system)",
+    "Star schema data warehouse (fact + dimension tables)",
+    "ETL process from transactional to warehouse data",
+    "SQL-based analytics queries",
+    "Power BI dashboard for KPIs and reports"
+  ],
+
+  role:
+    "Designed database schema, implemented role-based access control, structured ETL flow, created star schema model, and developed SQL queries for business analytics and dashboard reporting.",
+
+  images: [
+    "sis1.jpg",
+    "sis2.jpg",
+    "sis3.jpg"
+  ],
+
+  video: "videos/sis-demo.mp4"
 }
+
 
 };
 
